@@ -87,14 +87,15 @@ namespace DoNothig
         void Tracker()
         {
             int fx = MousePosition.X;
-            int fy = MousePosition.Y;         
+            int fy = MousePosition.Y;
+            int randomEvent = 0;
             bool check = true;
             while (check)
             {
                 Thread.Sleep(5);
                 int x = MousePosition.X;
                 int y = MousePosition.Y;
-
+                randomEvent++;
                 if (x != fx || y != fy)
                 {
                     this.Invoke((Action)(() =>
@@ -104,6 +105,16 @@ namespace DoNothig
                         main = true;
                         label4.Visible = true;
                     }));
+                    if (main) break; 
+                }
+                if (randomEvent == 2000)
+                {
+                    Random rdm = new Random();
+                    int rdmNum = rdm.Next();
+                    if(rdmNum % 9 == 0)
+                    {
+                        //notifyIcon1.ShowBalloonTip(5000, "Notification", "You got a message",ToolTipIcon tipIcon);
+                    }
                 }
 
             }
