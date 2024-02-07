@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 using System.Threading;
 
 namespace DoNothig
@@ -105,16 +96,24 @@ namespace DoNothig
                         main = true;
                         label4.Visible = true;
                     }));
-                    if (main) break; 
+                    if (main) break;
                 }
                 if (randomEvent == 2000)
                 {
                     Random rdm = new Random();
                     int rdmNum = rdm.Next();
-                    if(rdmNum % 9 == 0)
+                    if (rdmNum % 9 == 1)
                     {
-                        //notifyIcon1.ShowBalloonTip(5000, "Notification", "You got a message",ToolTipIcon tipIcon);
+                        notifyIcon1.ShowBalloonTip(5000, "Notification", "You got a message", ToolTipIcon.Info);
                     }
+                    if (rdmNum % 9 == 2)
+                    {
+                        this.Invoke((Action)(() =>
+                        {
+                            label1.Text = "You Moved ?";
+                        }));
+                    }
+                    randomEvent = 0;
                 }
 
             }
@@ -131,6 +130,25 @@ namespace DoNothig
             label2.Visible = true;
             label3.Visible = true;
             label4.Visible = false;
+        }
+
+        private void Menu_SizeChanged(object sender, EventArgs e)
+        {
+            w = this.ClientSize.Width;
+            h = this.ClientSize.Height;
+
+            int lw = label1.Width / 2;
+            int lh = label1.Height / 2 + 100;
+            label1.Location = new Point(w / 2 - lw, h / 2 - lh);
+
+            int gw = label2.Width / 2;
+            int gh = label2.Height / 2 - 15;
+            label2.Location = new Point(w / 2 - gw, h / 2 - gh);
+            label4.Location = new Point(w / 2 - gw, h / 2 - gh);
+
+            int qw = label3.Width / 2;
+            int qh = label3.Height / 2 - 100;
+            label3.Location = new Point(w / 2 - qw, h / 2 - qh);
         }
     }
 }
