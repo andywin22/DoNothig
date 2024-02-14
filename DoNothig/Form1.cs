@@ -19,60 +19,58 @@ namespace DoNothig
             Location = new Point(0, 0);
             Size = new Size(w, h);
 
-            int lw = label1.Width / 2;
-            int lh = label1.Height / 2 + 100;
-            label1.Location = new Point(w / 2 - lw, h / 2 - lh);
+            int lw = Title.Width / 2;
+            int lh = Title.Height / 2 + 100;
+            Title.Location = new Point(w / 2 - lw, h / 2 - lh);
 
-            int gw = label2.Width / 2;
-            int gh = label2.Height / 2 - 15;
-            label2.Location = new Point(w / 2 - gw, h / 2 - gh);
-            label4.Location = new Point(w / 2 - gw, h / 2 - gh);
+            int gw = btnStart.Width / 2;
+            int gh = btnStart.Height / 2 - 15;
+            btnStart.Location = new Point(w / 2 - gw, h / 2 - gh);
+            btnMenu.Location = new Point(w / 2 - gw, h / 2 - gh);
 
-            int qw = label3.Width / 2;
-            int qh = label3.Height / 2 - 100;
-            label3.Location = new Point(w / 2 - qw, h / 2 - qh);
+            int qw = btnQuit.Width / 2;
+            int qh = btnQuit.Height / 2 - 100;
+            btnQuit.Location = new Point(w / 2 - qw, h / 2 - qh);
+
+            TimeRec();
         }
-        private void label2_MouseHover(object sender, EventArgs e)
+        private void TimeRec()
         {
-            label2.ForeColor = Color.DarkSalmon;
-        }
-
-        private void label3_MouseHover(object sender, EventArgs e)
-        {
-            label3.ForeColor = Color.DarkSalmon;
-        }
-
-        private void label2_MouseLeave(object sender, EventArgs e)
-        {
-            label2.ForeColor = Color.Gainsboro;
+            int timerec = Properties.Settings.Default.TimeRec;
+            string hour = ((timerec / 3600).ToString().Length == 1) ? "0" + (timerec / 3600).ToString() : (timerec / 3600).ToString();
+            string minute = (((timerec % 3600) / 60).ToString().Length == 1) ? "0" + ((timerec % 3600) / 60).ToString() : ((timerec % 3600) / 60).ToString();
+            string second = ((((timerec % 3600) % 60).ToString()).Length == 1) ? "0" + ((timerec % 3600) % 60).ToString() : ((timerec % 3600) % 60).ToString();
+            timeCount.Text = hour + ":" + minute + ":" + second;
         }
 
-        private void label3_MouseLeave(object sender, EventArgs e)
+        private void Btn_MouseHover(object sender, EventArgs e)
         {
-            label3.ForeColor = Color.Gainsboro;
+            Label button = (Label)sender;
+            button.ForeColor = Color.DarkSalmon;
         }
 
-        private void label4_MouseHover(object sender, EventArgs e)
+        private void Btn_MouseLeave(object sender, EventArgs e)
         {
-            label4.ForeColor = Color.DarkSalmon;
-        }
-
-        private void label4_MouseLeave(object sender, EventArgs e)
-        {
-            label4.ForeColor = Color.Gainsboro;
+            Label button = (Label)sender;
+            button.ForeColor = Color.Gainsboro;
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
             this.Invoke((Action)(() =>
             {
-                label1.Text = "Don't Move Your Mouse";
+                Title.Text = "Don't Move Your Mouse";
+                time = 0;
+                record.Visible = false;
+                timeCount.Location = new Point(0, 2);
             }));
-            label2.Visible = false;
-            label3.Visible = false;
+
+            btnStart.Visible = false;
+            btnQuit.Visible = false;
 
             Thread move = new Thread(Tracker);
             move.Start();
+            timer1.Start();
         }
 
         void Tracker()
@@ -81,6 +79,7 @@ namespace DoNothig
             int fy = MousePosition.Y;
             int randomEvent = 0;
             bool check = true;
+
             while (check)
             {
                 Thread.Sleep(5);
@@ -91,31 +90,40 @@ namespace DoNothig
                 {
                     this.Invoke((Action)(() =>
                     {
-                        label1.Text = "You Moved!!!";
+                        Title.Text = "You Moved!!!";
                         check = false;
                         main = true;
-                        label4.Visible = true;
+                        btnMenu.Visible = true;
                     }));
-                    if (main) break;
-                }
-                if (randomEvent == 2000)
-                {
-                    Random rdm = new Random();
-                    int rdmNum = rdm.Next();
-                    if (rdmNum % 9 == 1)
+                    if (main)
                     {
-                        notifyIcon1.ShowBalloonTip(5000, "Notification", "You got a message", ToolTipIcon.Info);
-                    }
-                    if (rdmNum % 9 == 2)
-                    {
-                        this.Invoke((Action)(() =>
-                        {
-                            label1.Text = "You Moved ?";
-                        }));
-                    }
-                    randomEvent = 0;
-                }
+                        timer1.Stop();
 
+                        int timerec = Properties.Settings.Default.TimeRec;  //checking if time now longer than record
+                        Properties.Settings.Default.TimeRec = (timerec > time) ? time : timerec;
+                        Properties.Settings.Default.Save();
+
+                        break;
+                    }
+                }
+                /*    if (randomEvent == 2000)
+                    {
+                        Random rdm = new Random();
+                        int rdmNum = rdm.Next();
+                        if (rdmNum % 9 == 1)
+                        {
+                            notifyIcon1.ShowBalloonTip(5000, "Notification", "You got a message", ToolTipIcon.Info);
+                        }
+                        if (rdmNum % 9 == 2)
+                        {
+                            this.Invoke((Action)(() =>
+                            {
+                                label1.Text = "You Moved ?";
+                            }));
+                        }
+                        randomEvent = 0;
+                    }
+                */
             }
         }
 
@@ -126,10 +134,16 @@ namespace DoNothig
 
         private void label4_Click(object sender, EventArgs e)
         {
-            label1.Text = "Do Nothing";
-            label2.Visible = true;
-            label3.Visible = true;
-            label4.Visible = false;
+            Title.Text = "Do Nothig";
+
+            record.Visible = true;
+            timeCount.Location = new Point(103, 2);
+
+            TimeRec();
+
+            btnStart.Visible = true;
+            btnQuit.Visible = true;
+            btnMenu.Visible = false;
         }
 
         private void Menu_SizeChanged(object sender, EventArgs e)
@@ -137,18 +151,28 @@ namespace DoNothig
             w = this.ClientSize.Width;
             h = this.ClientSize.Height;
 
-            int lw = label1.Width / 2;
-            int lh = label1.Height / 2 + 100;
-            label1.Location = new Point(w / 2 - lw, h / 2 - lh);
+            int lw = Title.Width / 2;
+            int lh = Title.Height / 2 + 100;
+            Title.Location = new Point(w / 2 - lw, h / 2 - lh);
 
-            int gw = label2.Width / 2;
-            int gh = label2.Height / 2 - 15;
-            label2.Location = new Point(w / 2 - gw, h / 2 - gh);
-            label4.Location = new Point(w / 2 - gw, h / 2 - gh);
+            int gw = btnStart.Width / 2;
+            int gh = btnStart.Height / 2 - 15;
+            btnStart.Location = new Point(w / 2 - gw, h / 2 - gh);
+            btnMenu.Location = new Point(w / 2 - gw, h / 2 - gh);
 
-            int qw = label3.Width / 2;
-            int qh = label3.Height / 2 - 100;
-            label3.Location = new Point(w / 2 - qw, h / 2 - qh);
+            int qw = btnQuit.Width / 2;
+            int qh = btnQuit.Height / 2 - 100;
+            btnQuit.Location = new Point(w / 2 - qw, h / 2 - qh);
+        }
+
+        int time = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            time++;
+            string hour = ((time / 3600).ToString().Length == 1) ? "0" + (time / 3600).ToString() : (time / 3600).ToString();
+            string minute = (((time % 3600) / 60).ToString().Length == 1) ? "0" + ((time % 3600) / 60).ToString() : ((time % 3600) / 60).ToString();
+            string second = ((((time % 3600) % 60).ToString()).Length == 1) ? "0" + ((time % 3600) % 60).ToString() : ((time % 3600) % 60).ToString();
+            timeCount.Text = hour + ":" + minute + ":" + second;
         }
     }
 }

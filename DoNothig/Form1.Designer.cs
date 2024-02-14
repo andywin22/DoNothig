@@ -30,75 +30,82 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Title = new System.Windows.Forms.Label();
+            this.btnStart = new System.Windows.Forms.Label();
+            this.btnQuit = new System.Windows.Forms.Label();
+            this.btnMenu = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.record = new System.Windows.Forms.Label();
+            this.timeCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // Title
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Microsoft New Tai Lue", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(0, 248);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1264, 136);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Do Nothing";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Title.Font = new System.Drawing.Font("Microsoft New Tai Lue", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.ForeColor = System.Drawing.Color.Gainsboro;
+            this.Title.Location = new System.Drawing.Point(8, 310);
+            this.Title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(1244, 130);
+            this.Title.TabIndex = 0;
+            this.Title.Text = "Do Nothig";
+            this.Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label2
+            // btnStart
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(592, 424);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(280, 63);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Game Start";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            this.label2.MouseLeave += new System.EventHandler(this.label2_MouseLeave);
-            this.label2.MouseHover += new System.EventHandler(this.label2_MouseHover);
+            this.btnStart.AutoSize = true;
+            this.btnStart.BackColor = System.Drawing.Color.Transparent;
+            this.btnStart.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnStart.Location = new System.Drawing.Point(789, 530);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(329, 79);
+            this.btnStart.TabIndex = 1;
+            this.btnStart.Text = "Game Start";
+            this.btnStart.Click += new System.EventHandler(this.label2_Click);
+            this.btnStart.MouseLeave += new System.EventHandler(this.Btn_MouseLeave);
+            this.btnStart.MouseHover += new System.EventHandler(this.Btn_MouseHover);
             // 
-            // label3
+            // btnQuit
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnQuit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(592, 528);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(268, 63);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Quit Game";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            this.label3.MouseLeave += new System.EventHandler(this.label3_MouseLeave);
-            this.label3.MouseHover += new System.EventHandler(this.label3_MouseHover);
+            this.btnQuit.AutoSize = true;
+            this.btnQuit.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuit.ForeColor = System.Drawing.Color.LightGray;
+            this.btnQuit.Location = new System.Drawing.Point(789, 660);
+            this.btnQuit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(319, 79);
+            this.btnQuit.TabIndex = 2;
+            this.btnQuit.Text = "Quit Game";
+            this.btnQuit.Click += new System.EventHandler(this.label3_Click);
+            this.btnQuit.MouseLeave += new System.EventHandler(this.Btn_MouseLeave);
+            this.btnQuit.MouseHover += new System.EventHandler(this.Btn_MouseHover);
             // 
-            // label4
+            // btnMenu
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(208, 496);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(285, 63);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Main Menu";
-            this.label4.Visible = false;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            this.label4.MouseLeave += new System.EventHandler(this.label4_MouseLeave);
-            this.label4.MouseHover += new System.EventHandler(this.label4_MouseHover);
+            this.btnMenu.AutoSize = true;
+            this.btnMenu.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnMenu.Location = new System.Drawing.Point(277, 620);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(337, 79);
+            this.btnMenu.TabIndex = 3;
+            this.btnMenu.Text = "Main Menu";
+            this.btnMenu.Visible = false;
+            this.btnMenu.Click += new System.EventHandler(this.label4_Click);
+            this.btnMenu.MouseLeave += new System.EventHandler(this.Btn_MouseLeave);
+            this.btnMenu.MouseHover += new System.EventHandler(this.Btn_MouseHover);
             // 
             // notifyIcon1
             // 
@@ -106,20 +113,53 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // record
+            // 
+            this.record.AutoSize = true;
+            this.record.BackColor = System.Drawing.Color.Transparent;
+            this.record.Font = new System.Drawing.Font("Microsoft New Tai Lue", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.record.ForeColor = System.Drawing.Color.LightGray;
+            this.record.Location = new System.Drawing.Point(0, 0);
+            this.record.Name = "record";
+            this.record.Size = new System.Drawing.Size(136, 44);
+            this.record.TabIndex = 4;
+            this.record.Text = "Record :";
+            // 
+            // timeCount
+            // 
+            this.timeCount.AutoSize = true;
+            this.timeCount.BackColor = System.Drawing.Color.Transparent;
+            this.timeCount.Font = new System.Drawing.Font("Microsoft New Tai Lue", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeCount.ForeColor = System.Drawing.Color.LightGray;
+            this.timeCount.Location = new System.Drawing.Point(135, 2);
+            this.timeCount.Name = "timeCount";
+            this.timeCount.Size = new System.Drawing.Size(141, 44);
+            this.timeCount.TabIndex = 5;
+            this.timeCount.Text = "00:00:00";
+            // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1264, 921);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1252, 953);
+            this.Controls.Add(this.timeCount);
+            this.Controls.Add(this.record);
+            this.Controls.Add(this.btnMenu);
+            this.Controls.Add(this.btnQuit);
+            this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.Title);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1270, 1000);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main Menu";
+            this.Text = "Do Nothig";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.SizeChanged += new System.EventHandler(this.Menu_SizeChanged);
             this.ResumeLayout(false);
@@ -129,11 +169,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Title;
+        private System.Windows.Forms.Label btnStart;
+        private System.Windows.Forms.Label btnQuit;
+        private System.Windows.Forms.Label btnMenu;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label record;
+        private System.Windows.Forms.Label timeCount;
     }
 }
 
