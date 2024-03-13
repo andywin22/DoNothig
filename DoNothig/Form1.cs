@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Threading;
+using DoNothig.Properties;
 
 namespace DoNothig
 {
@@ -64,7 +65,7 @@ namespace DoNothig
                 record.Visible = false;
                 timeCount.Location = new Point(0, 2);
             }));
-
+            timeCount.Text= "00:00:00";
             btnStart.Visible = false;
             btnQuit.Visible = false;
 
@@ -100,30 +101,13 @@ namespace DoNothig
                         timer1.Stop();
 
                         int timerec = Properties.Settings.Default.TimeRec;  //checking if time now longer than record
-                        Properties.Settings.Default.TimeRec = (timerec > time) ? time : timerec;
+                        Properties.Settings.Default.TimeRec = (timerec > time) ? timerec : time ;
                         Properties.Settings.Default.Save();
 
                         break;
                     }
                 }
-                /*    if (randomEvent == 2000)
-                    {
-                        Random rdm = new Random();
-                        int rdmNum = rdm.Next();
-                        if (rdmNum % 9 == 1)
-                        {
-                            notifyIcon1.ShowBalloonTip(5000, "Notification", "You got a message", ToolTipIcon.Info);
-                        }
-                        if (rdmNum % 9 == 2)
-                        {
-                            this.Invoke((Action)(() =>
-                            {
-                                label1.Text = "You Moved ?";
-                            }));
-                        }
-                        randomEvent = 0;
-                    }
-                */
+
             }
         }
 

@@ -46,10 +46,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Title.Font = new System.Drawing.Font("Microsoft New Tai Lue", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Title.Location = new System.Drawing.Point(8, 310);
-            this.Title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Title.Location = new System.Drawing.Point(6, 248);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(1244, 130);
+            this.Title.Size = new System.Drawing.Size(993, 104);
             this.Title.TabIndex = 0;
             this.Title.Text = "Do Nothig";
             this.Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -62,10 +61,9 @@
             this.btnStart.BackColor = System.Drawing.Color.Transparent;
             this.btnStart.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnStart.Location = new System.Drawing.Point(789, 530);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnStart.Location = new System.Drawing.Point(592, 424);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(329, 79);
+            this.btnStart.Size = new System.Drawing.Size(262, 63);
             this.btnStart.TabIndex = 1;
             this.btnStart.Text = "Game Start";
             this.btnStart.Click += new System.EventHandler(this.label2_Click);
@@ -79,10 +77,9 @@
             this.btnQuit.AutoSize = true;
             this.btnQuit.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuit.ForeColor = System.Drawing.Color.LightGray;
-            this.btnQuit.Location = new System.Drawing.Point(789, 660);
-            this.btnQuit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnQuit.Location = new System.Drawing.Point(592, 528);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(319, 79);
+            this.btnQuit.Size = new System.Drawing.Size(254, 63);
             this.btnQuit.TabIndex = 2;
             this.btnQuit.Text = "Quit Game";
             this.btnQuit.Click += new System.EventHandler(this.label3_Click);
@@ -96,10 +93,9 @@
             this.btnMenu.AutoSize = true;
             this.btnMenu.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnMenu.Location = new System.Drawing.Point(277, 620);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnMenu.Location = new System.Drawing.Point(208, 496);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(337, 79);
+            this.btnMenu.Size = new System.Drawing.Size(268, 63);
             this.btnMenu.TabIndex = 3;
             this.btnMenu.Text = "Main Menu";
             this.btnMenu.Visible = false;
@@ -125,8 +121,9 @@
             this.record.Font = new System.Drawing.Font("Microsoft New Tai Lue", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.record.ForeColor = System.Drawing.Color.LightGray;
             this.record.Location = new System.Drawing.Point(0, 0);
+            this.record.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.record.Name = "record";
-            this.record.Size = new System.Drawing.Size(136, 44);
+            this.record.Size = new System.Drawing.Size(111, 35);
             this.record.TabIndex = 4;
             this.record.Text = "Record :";
             // 
@@ -136,27 +133,28 @@
             this.timeCount.BackColor = System.Drawing.Color.Transparent;
             this.timeCount.Font = new System.Drawing.Font("Microsoft New Tai Lue", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeCount.ForeColor = System.Drawing.Color.LightGray;
-            this.timeCount.Location = new System.Drawing.Point(135, 2);
+            this.timeCount.Location = new System.Drawing.Point(101, 2);
+            this.timeCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.timeCount.Name = "timeCount";
-            this.timeCount.Size = new System.Drawing.Size(141, 44);
+            this.timeCount.Size = new System.Drawing.Size(117, 35);
             this.timeCount.TabIndex = 5;
             this.timeCount.Text = "00:00:00";
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1252, 953);
+            this.ClientSize = new System.Drawing.Size(1000, 772);
             this.Controls.Add(this.timeCount);
             this.Controls.Add(this.record);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.Title);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1270, 1000);
+            this.MinimumSize = new System.Drawing.Size(1000, 772);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Do Nothig";
